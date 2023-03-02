@@ -2,6 +2,6 @@
   RewriteEngine on
 
   RewriteRule ^(\?.*?)$ index.php$1 [NC,L]
-  RewriteRule ^(([a-zA-Z0-9]*-[a-zA-Z0-9]*)+)$ post.php?q=$1 [NC,L]
+  RewriteRule ^(.*?)$ post.php?q=$1 [NC,L]
   RewriteRule ^sitemap.xml$ sitemap.php [NC,L]
 </IfModule>
