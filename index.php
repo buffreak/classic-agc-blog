@@ -21,7 +21,7 @@ if($pageNow < count($contents)){
   foreach($homeContents as $content){
     $rawContent = file_get_contents($content[0]);
     preg_match('/<div class="text-muted fst-italic mb-2">(.*?)<\/div>/', $rawContent, $postDate);
-    preg_match('/<p style="text-align: justify; text-justify: inter-word;">(.*?)<\/p>/s', $rawContent, $metaDescription);
+    preg_match('/<p.*?>(.*?)<\/p>/s', $rawContent, $metaDescription);
     $metaDescription[1] = implode(" ", array_slice(explode(" ", strip_tags($metaDescription[1])), 0, 20));
     $title = ucwords(str_replace("-", " ", basename($content[0], ".html")));
     $slug = basename($content[0], ".html");
@@ -29,7 +29,7 @@ if($pageNow < count($contents)){
 
 <div class="card mb-4">
 <div class="card-body">
-<div class="small text-muted"><?=$postDate[1]?></div>
+<div class="small text-muted">Posted by Admin</div>
 <a href="<?=$slug?>" style="text-decoration: none"><h2 class="card-title"><?=$title?></h2></a>
 <p class="card-text"><?=$metaDescription[1]?>...</p>
 <a class="btn btn-primary" href="<?=$slug?>">Read more →</a>
