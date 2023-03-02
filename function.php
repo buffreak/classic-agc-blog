@@ -3,6 +3,10 @@ function secureInput($raw) {
   return htmlspecialchars($raw);
 }
 
+function siteProtocol() {
+  if(isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&  $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')  return $protocol = 'https://'; else return $protocol = 'http://';
+}
+
 function readDirRecursive($path = "data", $search = "", $fileOnly = true){
   $container = [];
   $walks = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path, FilesystemIterator::SKIP_DOTS | FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::UNIX_PATHS));
