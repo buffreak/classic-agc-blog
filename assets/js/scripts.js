@@ -9,7 +9,6 @@
 $(document).ready(function() {
     $("#button-search").click((e) => {
       let query = $("#input-search").val()
-      let encodeParam = encodeURIComponent
       window.location.href = `${window.location.protocol}//${window.location.host}/?q=${encodeURIComponent(query)}`
     })
   })
