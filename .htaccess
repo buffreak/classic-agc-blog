@@ -1,7 +1,8 @@
 <IfModule mod_rewrite.c>
   RewriteEngine on
 
+  RewriteRule ^$ index.php [NC,L]
   RewriteRule ^(\?.*?)$ index.php$1 [NC,L]
-  RewriteRule ^(.*?)$ post.php?q=$1 [NC,L]
+  RewriteRule ^([0-9a-z-A-Z-]*)$ post.php?q=$1 [NC,L]
   RewriteRule ^sitemap.xml$ sitemap.php [NC,L]
 </IfModule>
