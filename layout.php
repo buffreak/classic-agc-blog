@@ -5,9 +5,9 @@ const TOP_HTML = <<<TOP_HTML_HEREDOC
   <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <title>Blog Home - Start Bootstrap Template</title>
+  <meta name="description" content="{{ .SiteName }} - {{ .SiteDescription }}" />
+  <meta name="author" content="admin" />
+  <title>{{ .SiteName }} - {{ .SiteDescription }}</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="/assets/ico/favicon.ico" />
   <!-- Core theme CSS (includes Bootstrap)-->
@@ -33,8 +33,8 @@ const TOP_HTML = <<<TOP_HTML_HEREDOC
   <header class="py-5 bg-light border-bottom mb-4">
   <div class="container">
   <div class="text-center my-5">
-  <h1 class="fw-bolder">Welcome to Blog Home!</h1>
-  <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
+  <h1 class="fw-bolder">Welcome to {{ .SiteName }}</h1>
+  <p class="lead mb-0">{{ .SiteName }}</p>
   </div>
   </div>
   </header>
