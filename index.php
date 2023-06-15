@@ -5,7 +5,7 @@ $contents = isset($_GET['q']) ? readDirRecursive("data", strtolower(str_replace(
 $contentsPerPage = 5;
 $totalPage = ceil(count($contents) / $contentsPerPage);
 $pageNow = isset($_GET['page']) && secureInput($_GET['page']) > 0 ? secureInput($_GET['page']) : 1;
-if($pageNow < count($contents)){
+if($pageNow <= $totalPage){
   $homeContents = array_slice($contents, $pageNow * $contentsPerPage - $contentsPerPage, $contentsPerPage);
 }
 $popularPosts = [];
@@ -17,7 +17,7 @@ echo TOP_HTML;
 
 <!-- Posts -->
 <?php
-if($pageNow < count($contents)){
+if($pageNow <= $totalPage){
   foreach($homeContents as $content){
     $rawContent = file_get_contents($content[0]);
     preg_match('/<div class="text-muted fst-italic mb-2">(.*?)<\/div>/', $rawContent, $postDate);
