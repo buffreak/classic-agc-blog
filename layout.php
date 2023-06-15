@@ -6,6 +6,7 @@ const TOP_HTML = <<<TOP_HTML_HEREDOC
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="{{ .SiteName }} - {{ .SiteDescription }}" />
+  <link rel="canonical" href="{{ .DomainName}}/">
   <meta name="author" content="admin" />
   <title>{{ .SiteName }} - {{ .SiteDescription }}</title>
   <!-- Favicon-->
